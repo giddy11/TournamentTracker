@@ -1,4 +1,6 @@
-﻿namespace TournamentTracker.Library.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TournamentTracker.Library.Models;
 
 public class Prize
 {
@@ -36,6 +38,7 @@ public class Prize
     /// <summary>
     /// A unique Identifier for the Prize
     /// </summary>
+    [Key]
     public int Id { get; set; }
 
     /// <summary>

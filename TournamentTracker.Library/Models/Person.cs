@@ -1,7 +1,15 @@
-﻿namespace TournamentTracker.Library.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TournamentTracker.Library.Models;
 
 public class Person
 {
+    /// <summary>
+    /// A unique Identifier for the Person
+    /// </summary>
+    [Key]
+    public int Id { get; set; }
+
     /// <summary>
     /// The first name of the person.
     /// </summary>
