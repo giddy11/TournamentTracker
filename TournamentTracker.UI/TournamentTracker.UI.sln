@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TournamentTracker.UI", "TournamentTracker.UI\TournamentTracker.UI.csproj", "{33948E61-CA9E-4608-9CCE-86B06F69098E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TournamentTracker.Library", "..\TournamentTracker.Library\TournamentTracker.Library.csproj", "{64A2D4CF-4050-4873-9562-52C40E7A432F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33948E61-CA9E-4608-9CCE-86B06F69098E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33948E61-CA9E-4608-9CCE-86B06F69098E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33948E61-CA9E-4608-9CCE-86B06F69098E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33948E61-CA9E-4608-9CCE-86B06F69098E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64A2D4CF-4050-4873-9562-52C40E7A432F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A2D4CF-4050-4873-9562-52C40E7A432F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A2D4CF-4050-4873-9562-52C40E7A432F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A2D4CF-4050-4873-9562-52C40E7A432F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10FE3EDA-F500-4E2C-A068-34C2035CD807}
+	EndGlobalSection
+EndGlobal
