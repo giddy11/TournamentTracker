@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TournamentTracker.Library.Models;
+using TournamentTracker.UI.Models;
 
-namespace TournamentTracker.Library.DataAccess;
+namespace TournamentTracker.UI.DataAccess;
 
 public class ApplicationDbContext : DbContext
 {
@@ -10,11 +10,10 @@ public class ApplicationDbContext : DbContext
         
     }
 
-    public DbSet<Matchup> Matchups { get; set; }
-    public DbSet<MatchupEntry> MatchupEntries { get; set; }
+    public DbSet<GameWeek> GameWeeks { get; set; }
+    public DbSet<Record> Records { get; set; }
     public DbSet<Person> Persons { get; set; }
-    public DbSet<Prize> Prizes { get; set; }
     public DbSet<Team> Teams { get; set; }
     public DbSet<Tournament> Tournaments { get; set; }
-
+    public DbSet<User> Users { get; set; }
 }
