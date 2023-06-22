@@ -12,5 +12,5 @@ public class Tournament
     public string ImageUrl { get; set; }
     public List<Team>? Teams { get; set; }
     public string? Description { get; set; }
-    public Record? Record { get; set; }
+    //public Record? Record { get; set; }
 }
