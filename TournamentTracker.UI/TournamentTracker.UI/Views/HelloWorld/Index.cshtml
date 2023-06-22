@@ -1,0 +1,9 @@
+﻿@model List<Person>
+
+<ul>
+    @foreach (var obj in Model)
+    {
+        <li>My first name is @obj.FirstName with phone number @obj.CellPhoneNumber</li>
+    }
+</ul>
+
