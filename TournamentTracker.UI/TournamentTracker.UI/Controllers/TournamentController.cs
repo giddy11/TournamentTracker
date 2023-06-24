@@ -1,21 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TournamentTracker.UI.DataAccess;
+using TournamentTracker.UI.Interfaces;
 using TournamentTracker.UI.Models;
 
 namespace TournamentTracker.UI.Controllers
 {
     public class TournamentController : Controller
     {
-        public TournamentController(ApplicationDbContext context)
+        public TournamentController(ITournamentRepository tournamentRepository)
         {
-            _context = context;
+            _tournamentRepository = tournamentRepository;
         }
 
         //GET
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //var data = _context.Tournaments.ToList();
-            IEnumerable<Tournament> data = _context.Tournaments;
+            IEnumerable<Tournament> data = await _tournamentRepository.GetAll();
             return View(data);
         }
 
@@ -30,20 +31,19 @@ namespace TournamentTracker.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Tournaments.Add(obj);
-                _context.SaveChanges();
+                _tournamentRepository.Add(obj);
                 return RedirectToAction("Index"); 
             }
             return View(obj);
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id)
         {
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-            var categoryFromDb = _context.Tournaments.Find(id);
+            var categoryFromDb = _tournamentRepository.GetByIdAsync(id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -55,12 +55,9 @@ namespace TournamentTracker.UI.Controllers
         [HttpPost]
         public IActionResult Edit(Tournament obj)
         {
-
-
             if (ModelState.IsValid)
             {
-                _context.Tournaments.Update(obj);
-                _context.SaveChanges();
+                _tournamentRepository.Update(obj);
                 return RedirectToAction("Index");
                 //return RedirectToAction("Index", "Category");
             }
@@ -68,6 +65,7 @@ namespace TournamentTracker.UI.Controllers
         }
 
 
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
+        private readonly ITournamentRepository _tournamentRepository;
     }
 }
