@@ -21,7 +21,7 @@
                 @foreach (var obj in Model)
                 {
                     <tr>
-                        <td> <a href="#">@obj.TournamentName</a></td>
+                        <td> <a asp-controller="Tournament" asp-action="Type">@obj.TournamentName</a></td>
                         <td>@obj.TournamentType</td>
                         <td>@obj.Description</td>
 

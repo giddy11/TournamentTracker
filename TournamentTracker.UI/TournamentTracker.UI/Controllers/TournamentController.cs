@@ -12,10 +12,8 @@ namespace TournamentTracker.UI.Controllers
             _tournamentRepository = tournamentRepository;
         }
 
-        //GET
         public async Task<IActionResult> Index()
         {
-            //var data = _context.Tournaments.ToList();
             IEnumerable<Tournament> data = await _tournamentRepository.GetAll();
             return View(data);
         }
@@ -25,7 +23,6 @@ namespace TournamentTracker.UI.Controllers
             return View();
         }
 
-        //POST
         [HttpPost]
         public IActionResult Create(Tournament obj)
         {
@@ -59,13 +56,39 @@ namespace TournamentTracker.UI.Controllers
             {
                 _tournamentRepository.Update(obj);
                 return RedirectToAction("Index");
-                //return RedirectToAction("Index", "Category");
             }
             return View();
         }
 
+        public IActionResult Type(TournamentType tournamentType)
+        {
+            //if (TournamentType.ClassicLeague.Equals(tournamentType))
+            if (TournamentType.ClassicLeague == tournamentType)
+            {
+                return View("ClassicLeague");
+            }
+            else if (TournamentType.Head2Head == tournamentType)
+            {
+                return View("Head2Head");
+            }
+            return View("Knockout");
+        }
 
-        //private readonly ApplicationDbContext _context;
+        public IActionResult ClassicLeague()
+        {
+            return View();
+        }
+
+        public IActionResult Head2Head()
+        {
+            return View();
+        }
+
+        public IActionResult Knockout()
+        {
+            return View();
+        }
+
         private readonly ITournamentRepository _tournamentRepository;
     }
 }
