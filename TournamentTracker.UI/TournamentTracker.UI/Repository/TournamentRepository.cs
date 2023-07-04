@@ -27,15 +27,14 @@ namespace TournamentTracker.UI.Repository
             return await _context.Tournaments.ToListAsync();
         }
 
-        public async Task<Tournament> GetByIdAsync(int id)
+        public async Task<Tournament?> GetByIdAsync(int id)
         {
-            return await _context.Tournaments.FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Tournaments.FindAsync(id);
         }
 
         public bool Save()
         {
-            var saved = _context.SaveChanges();
-            return saved > 0 ? true : false;
+            return _context.SaveChanges() > 0;
         }
 
         public bool Update(Tournament tournament)
