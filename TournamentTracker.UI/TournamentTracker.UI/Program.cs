@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TournamentTracker.UI.DataAccess;
+using TournamentTracker.UI.Hubs;
 using TournamentTracker.UI.Interfaces;
 using TournamentTracker.UI.Repository;
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ITournamentRepository, TournamentRepository>();
+builder.Services.AddSignalR();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -35,5 +37,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapHub<NotificationHUb>("/notifyHub");
 
 app.Run();
