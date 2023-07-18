@@ -1,40 +1,44 @@
-﻿"use strict";
+﻿// Create SignalR connection
+var connection = new signalR.HubConnectionBuilder()
+    .withUrl("/notifyHub")
+    .build();
 
-var connection = new signalR.HubConnectionBuilder().withUrl("/notifyHub").build();
-
-connection.on("NotificationMessage", function (message) {
-    var li = document.createElement("li");
-})
-
-
-
-/*﻿"use strict";
-
-var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
-
-//Disable the send button until connection is established.
-document.getElementById("sendButton").disabled = true;
-
-connection.on("ReceiveMessage", function (user, message) {
-    var li = document.createElement("li");
-    document.getElementById("messagesList").appendChild(li);
-    // We can assign user-suplied strings to an element's textContent because it
-    // is not interpreted as markup. If you're assigning in any other way, you
-    // should be aware of possible script injection concerns.
-    li.textContent = `${user} says ${message}`; 
+// Handle received new tournament event
+connection.on("NewTournamentReceived", function (newTournament) {
+    // Perform actions when a new tournament is received
+    console.log("New tournament received:", newTournament);
+    // Update UI, display a notification, or perform any other necessary actions
 });
 
-connection.start().then(function () {
-    document.getElementById("sendButton").disabled = false;
-}).catch(function (err) {
-    return console.error(err.toString());
-});
+// Start the SignalR connection
+connection.start()
+    .then(function () {
+        console.log("SignalR connection established.");
+    })
+    .catch(function (err) {
+        console.error(err.toString());
+    });
 
+// Function to send data to the server
+function sendWebSocketData(eventName, payload) {
+    var data = {
+        eventName: eventName,
+        payload: payload
+    };
+    connection.invoke(eventName, data)
+        .catch(function (err) {
+            console.error(err.toString());
+        });
+}
+
+// Example usage to send data to the server
 document.getElementById("sendButton").addEventListener("click", function (event) {
     var user = document.getElementById("userInput").value;
     var message = document.getElementById("messageInput").value;
-    connection.invoke("SendMessage", user, message).catch(function (err) {
-        return console.error(err.toString());
-    });
+    var dataToSend = {
+        user: user,
+        message: message
+    };
+    sendWebSocketData("SendMessage", dataToSend);
     event.preventDefault();
-}); */
+});

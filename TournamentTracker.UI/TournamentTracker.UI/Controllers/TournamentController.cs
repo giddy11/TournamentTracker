@@ -33,7 +33,7 @@ namespace TournamentTracker.UI.Controllers
         {
             if (ModelState.IsValid)
             {
-                _tournamentRepository.Add(obj);
+                _tournamentRepository.Create(obj);
                 return RedirectToAction("Index"); 
             }
             return View(obj);

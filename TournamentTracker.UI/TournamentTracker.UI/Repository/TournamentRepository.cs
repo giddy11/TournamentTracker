@@ -55,13 +55,11 @@ namespace TournamentTracker.UI.Infrastructure
         public async Task Create(Tournament tournament)
         {
             _context.Tournaments.Add(tournament);
-
+            await _hubContext.Clients.All.SendAsync("NewTournamentReceived", tournament);
             await _context.SaveChangesAsync();
         }
 
         private readonly ApplicationDbContext _context;
         private readonly IHubContext<TournamentHub> _hubContext;
-
-feat/signalR-implementation
     }
 }

@@ -5,20 +5,6 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TournamentTracker.UI", "TournamentTracker.UI\TournamentTracker.UI.csproj", "{33948E61-CA9E-4608-9CCE-86B06F69098E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{729A337E-530F-4602-90DF-AE1F3A08839C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TournamentTracker.Infrastructure", "TournamentTracker.Infrastructure\TournamentTracker.Infrastructure.csproj", "{EBB1758F-9ED5-4659-A9EF-C426CC19BF63}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{CB4E9F1B-4AB1-4745-BBB3-AE4FFC2F69F8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Admin", "Admin", "{983C9286-32D6-4538-894D-D5EBDB25DF37}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B9F2B0C8-F626-43FF-AE98-D798E1491850}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.Services", "Admin.Services\Admin.Services.csproj", "{A608F062-6FA5-4CD8-B3ED-D2220F0BDF5E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.Services.API", "Admin.Services.API\Admin.Services.API.csproj", "{9C40E2DA-D9D7-431E-AF40-892935A6A324}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,28 +15,9 @@ Global
 		{33948E61-CA9E-4608-9CCE-86B06F69098E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33948E61-CA9E-4608-9CCE-86B06F69098E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33948E61-CA9E-4608-9CCE-86B06F69098E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EBB1758F-9ED5-4659-A9EF-C426CC19BF63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBB1758F-9ED5-4659-A9EF-C426CC19BF63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBB1758F-9ED5-4659-A9EF-C426CC19BF63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBB1758F-9ED5-4659-A9EF-C426CC19BF63}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A608F062-6FA5-4CD8-B3ED-D2220F0BDF5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A608F062-6FA5-4CD8-B3ED-D2220F0BDF5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A608F062-6FA5-4CD8-B3ED-D2220F0BDF5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A608F062-6FA5-4CD8-B3ED-D2220F0BDF5E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C40E2DA-D9D7-431E-AF40-892935A6A324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C40E2DA-D9D7-431E-AF40-892935A6A324}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C40E2DA-D9D7-431E-AF40-892935A6A324}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C40E2DA-D9D7-431E-AF40-892935A6A324}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{EBB1758F-9ED5-4659-A9EF-C426CC19BF63} = {729A337E-530F-4602-90DF-AE1F3A08839C}
-		{983C9286-32D6-4538-894D-D5EBDB25DF37} = {CB4E9F1B-4AB1-4745-BBB3-AE4FFC2F69F8}
-		{B9F2B0C8-F626-43FF-AE98-D798E1491850} = {983C9286-32D6-4538-894D-D5EBDB25DF37}
-		{A608F062-6FA5-4CD8-B3ED-D2220F0BDF5E} = {B9F2B0C8-F626-43FF-AE98-D798E1491850}
-		{9C40E2DA-D9D7-431E-AF40-892935A6A324} = {B9F2B0C8-F626-43FF-AE98-D798E1491850}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10FE3EDA-F500-4E2C-A068-34C2035CD807}
