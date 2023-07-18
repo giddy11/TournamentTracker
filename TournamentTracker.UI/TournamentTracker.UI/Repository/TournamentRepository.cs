@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using TournamentTracker.UI.DataAccess;
 using TournamentTracker.UI.Interfaces;
 using TournamentTracker.UI.Models;
@@ -7,15 +8,16 @@ namespace TournamentTracker.UI.Repository
 {
     public class TournamentRepository : ITournamentRepository
     {
-        public TournamentRepository(ApplicationDbContext context)
+        public TournamentRepository(ApplicationDbContext context, IHubContext<TournamentHub> hubContext)
         {
             _context = context;
+            _hubContext = hubContext;
         }
-        public bool Add(Tournament tournament)
-        {
-           _context.Add(tournament);
-            return Save();
-        }
+        //public bool Add(Tournament tournament)
+        //{
+        //   _context.Add(tournament);
+        //    return Save();
+        //}
 
         public bool Delete(int id)
         {
@@ -49,6 +51,15 @@ namespace TournamentTracker.UI.Repository
             return Save();
         }
 
+        public async Task Create(Tournament tournament)
+        {
+            _context.Tournaments.Add(tournament);
+
+            await _context.SaveChangesAsync();
+        }
+
         private readonly ApplicationDbContext _context;
+        private readonly IHubContext<TournamentHub> _hubContext;
+
     }
 }
