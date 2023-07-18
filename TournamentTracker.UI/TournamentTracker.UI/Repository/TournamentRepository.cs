@@ -14,11 +14,11 @@ namespace TournamentTracker.UI.Infrastructure
             _context = context;
             _hubContext = hubContext;
         }
-        public bool Add(Tournament tournament)
-        {
-           _context.Add(tournament);
-            return Save();
-        }
+        //public bool Add(Tournament tournament)
+        //{
+        //   _context.Add(tournament);
+        //    return Save();
+        //}
 
         public bool Delete(int id)
         {
@@ -52,7 +52,16 @@ namespace TournamentTracker.UI.Infrastructure
             return Save();
         }
 
+        public async Task Create(Tournament tournament)
+        {
+            _context.Tournaments.Add(tournament);
+
+            await _context.SaveChangesAsync();
+        }
+
         private readonly ApplicationDbContext _context;
         private readonly IHubContext<TournamentHub> _hubContext;
+
+feat/signalR-implementation
     }
 }
