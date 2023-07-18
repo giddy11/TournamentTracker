@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using TournamentTracker.UI.DataAccess;
+using TournamentTracker.UI.Hubs;
 using TournamentTracker.UI.Interfaces;
 using TournamentTracker.UI.Models;
 

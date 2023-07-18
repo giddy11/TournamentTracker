@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TournamentTracker.UI.DataAccess;
 using TournamentTracker.UI.Hubs;
 using TournamentTracker.UI.Interfaces;
-using TournamentTracker.UI.Repository;
+using TournamentTracker.UI.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +38,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapHub<NotificationHUb>("/notifyHub");
+app.MapHub<TournamentHub>("/notifyHub");
 
 app.Run();
